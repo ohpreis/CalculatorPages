@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Calculator Pages: Simple Car Loan Calculator</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="application.js"></script>
+    <style>
+        input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+            /* display: none; <- Crashes Chrome on hover */
+            -webkit-appearance: none;
+            margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+        }
+
+        input[type=number] {
+            -moz-appearance:textfield; /* Firefox */
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="row">
+            <div class="row">
+                <div class="col-md-12">
+                    <h1>Simple Car Loan Calculator</h1>
+                </div>
+                <div class="col-md-6 mt-4">
+
+                    <form class="form-floating">
+                        <div class="form-floating mb-3">
+                            <input type="number" class="form-control" id="LoanAmount"
+                                placeholder="24000" value="20000"
+                                onkeyup="isNumericKey(e)">
+                            <label for="LoanAmount">Loan Amount</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="number" class="form-control" id="InterestRate"
+                                placeholder="5" value="5"
+                                onkeyup="isNumericKey(e)" min="0" max="99" maxlength="2">
+                            <label for="InterestRate">Loan Amount</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <select class="form-control" id="TermLength">
+                                <option value="1">12 months ( 1 year )</option>
+                                <option value="24">24 months ( 1 year )</option>
+                                <option value="36" selected>36 months ( 1 year )</option>
+                                <option value="48">48 months ( 1 year )</option>
+                                <option value="60">60 months ( 1 year )</option>
+                                <option value="72">72 months ( 1 year )</option>
+                            </select>
+                            <label for="TermLength">Term Length</label>
+                        </div>
+                    </form>
+
+                </div>
+                <div class="col-md-6">
+                    <div class=" mb-3">
+                        <div class="card mt-4 w-75">
+                            <div class="card-body">
+                                <h2>$ 599.22</h2>
+                                <p>Monthly Payments</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <div class="card w-75">
+                            <div class="card-body">
+                                <h2>1579.05</h2>
+                                <p>Total Interest Payed</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mb-1">
+                        <div class="card w-75">
+                            <div class="card-body">
+                                <h2>$ 21579.05</h2>
+                                <p>Total Amount</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</body>
+</html>
