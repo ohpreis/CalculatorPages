@@ -1,5 +1,5 @@
 
-const btnCalculate = document.getElementById('btn-Calculate')
+document.getElementById('btn-Calculate')
     .addEventListener('click', calculate, false);
 
 function isNumericKey(evt)
