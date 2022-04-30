@@ -39,43 +39,41 @@
                 </p>
 
 
-                    <!-- Loan Amount -->
-                    <div class="form-floating input-group mb-3">
-                        <span class="input-group-text" id="addon-LoanAmount">$</span>
-                        <input type="number" class="form-control" id="Principal" name="Principal"
-                            placeholder="24000" value="20000"
-                            onkeyup="isNumericKey(this)">
-                        <label style="margin-left: 2.2rem" for="Principal">Loan Amount</label>
-                    </div>
+                <!-- Loan Amount -->
+                <div class="form-floating input-group mb-3">
+                    <span class="input-group-text" id="addon-LoanAmount">$</span>
+                    <input type="number" class="form-control" id="Principal" name="Principal"
+                        placeholder="24000" value="20000"
+                        onkeyup="isNumericKey(this)">
+                    <label style="margin-left: 2.2rem" for="Principal">Loan Amount</label>
+                </div>
 
-                    <!-- Interest Rate -->
-                    <div class="form-floating input-group mb-3">
-                        <input type="number" class="form-control" id="InterestRate"
-                            name="InterestRate" placeholder="5" value="5"
-                            onkeyup="isNumericKey(this)" min="0" max="99" maxlength="2">
-                        <span class="input-group-text" id="addon-InterestRate">%</span>
-                        <label for="InterestRate">Interest Rate</label>
-                    </div>
+                <!-- Interest Rate -->
+                <div class="form-floating input-group mb-3">
+                    <input type="number" class="form-control" id="InterestRate"
+                        name="InterestRate" placeholder="5" value="5"
+                        onkeyup="isNumericKey(this)" min="0" max="99" maxlength="2">
+                    <span class="input-group-text" id="addon-InterestRate">%</span>
+                    <label for="InterestRate">Interest Rate</label>
+                </div>
 
-                    <!-- Term length -->
-                    <div class="form-floating mb-3">
-                        <select class="form-control" id="TermLength" name="TermLength">
-                            <option value="12">12 months ( 1 year )</option>
-                            <option value="24">24 months ( 1 year )</option>
-                            <option value="36" selected>36 months ( 1 year )</option>
-                            <option value="48">48 months ( 1 year )</option>
-                            <option value="60">60 months ( 1 year )</option>
-                            <option value="72">72 months ( 1 year )</option>
-                        </select>
-                        <label for="TermLength">Term Length</label>
-                    </div>
+                <!-- Term length -->
+                <div class="form-floating mb-3">
+                    <select class="form-control" id="TermLength" name="TermLength">
+                        <option value="12">12 months ( 1 year )</option>
+                        <option value="24">24 months ( 1 year )</option>
+                        <option value="36" selected>36 months ( 1 year )</option>
+                        <option value="48">48 months ( 1 year )</option>
+                        <option value="60">60 months ( 1 year )</option>
+                        <option value="72">72 months ( 1 year )</option>
+                    </select>
+                    <label for="TermLength">Term Length</label>
+                </div>
 
-                    <!-- Submit -->
-                    <div class="mb-3">
-                        <button id="btn-Calculate" class="btn btn-primary btn-lg">Calculate</button>
-                    </div>
-
-
+                <!-- Submit -->
+                <div class="mb-3">
+                    <button id="btn-Calculate" class="btn btn-primary btn-lg">Calculate</button>
+                </div>
 
             </div><!-- End: right left column -->
 
