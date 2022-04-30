@@ -43,7 +43,7 @@
                 <div class="form-floating input-group mb-3">
                     <span class="input-group-text" id="addon-LoanAmount">$</span>
                     <input type="number" class="form-control" id="Principal" name="Principal"
-                        placeholder="24000" value="20000"
+                        placeholder="24000" value="30000"
                         onkeyup="isNumericKey(this)">
                     <label style="margin-left: 2.2rem" for="Principal">Loan Amount</label>
                 </div>
@@ -83,7 +83,7 @@
                 <div class=" mb-3">
                     <div class="card bg-success text-white mt-4 w-75">
                         <div class="card-body">
-                            <h2 id="MonthlyPayment">$ 599.22</h2>
+                            <h2 id="MonthlyPayment">$599.22</h2>
                             <p>Monthly Payments</p>
                         </div>
                     </div>
@@ -93,7 +93,7 @@
                 <div class="mb-3">
                     <div class="card bg-info text-white w-75">
                         <div class="card-body">
-                            <h2 id="InterestPayed">$ 1,579.05</h2>
+                            <h2 id="InterestPayed">$1,579.05</h2>
                             <p>Total Interest Payed</p>
                         </div>
                     </div>
@@ -103,7 +103,7 @@
                 <div class="mb-1">
                     <div class="card bg-warning text-white w-75">
                         <div class="card-body">
-                            <h2 id="TotalLoanAmount">$ 21,579.05</h2>
+                            <h2 id="TotalLoanAmount">$21,579.05</h2>
                             <p>Total Amount</p>
                         </div>
                     </div>
@@ -116,6 +116,11 @@
     </div><!-- End: container -->
 
     <script src="application.js"></script>
-
+    <script>
+        /* Onload calculate the defaults */
+        document.addEventListener("DOMContentLoaded", function(){
+            calculate();
+        });
+    </script>
 </body>
 </html>

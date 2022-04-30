@@ -1,7 +1,8 @@
-
+/* Add the event handler to our button */
 document.getElementById('btn-Calculate')
     .addEventListener('click', calculate, false);
 
+/* Only allow numeric values */
 function isNumericKey(evt)
 {
     let charCode = (evt) ? evt : evt.keyCode;
@@ -9,6 +10,7 @@ function isNumericKey(evt)
         && (charCode < 48 || charCode > 57);
 }
 
+/* Calculate the monthly payments, interest payed, and total loan amount */
 function calculate() {
 
     const xPrincipal = parseFloat(document.getElementById('Principal').value);
@@ -27,8 +29,15 @@ function calculate() {
     const totalPayment = (monthly * xTermLength).toFixed(2);
 
     /* Update the results */
-    document.getElementById("MonthlyPayment").innerHTML = "$" + monthlyPayment;
-    document.getElementById("InterestPayed").innerHTML = "$" + totalInterest;
-    document.getElementById("TotalLoanAmount").innerHTML = "$" + totalPayment;
+    document.getElementById("MonthlyPayment").innerHTML = formatCurrency(monthlyPayment);
+    document.getElementById("InterestPayed").innerHTML = formatCurrency(totalInterest);
+    document.getElementById("TotalLoanAmount").innerHTML = formatCurrency(totalPayment);
 
+}
+
+/* Currency formatting */
+function formatCurrency(number)
+{
+    /* For now only US */
+    return new Intl.NumberFormat('en-US', { currency: 'USD', style: 'currency'}).format(number)
 }
