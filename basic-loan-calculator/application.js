@@ -13,9 +13,16 @@ function isNumericKey(evt)
 /* Calculate the monthly payments, interest payed, and total loan amount */
 function calculate() {
 
-    const xPrincipal = parseFloat(document.getElementById('Principal').value);
-    const xInterestRate = parseFloat(document.getElementById('InterestRate').value) / 100 / 12;
-    const xTermLength = parseFloat(document.getElementById('TermLength').value);
+    /* Get the input field values */
+    const uPrincipal = document.getElementById('Principal').value;
+    const uInterestRate = document.getElementById('InterestRate').value;
+    const uTermLength = document.getElementById('TermLength').value;
+
+    /* The interest rate must be greater */
+
+    const xPrincipal = parseFloat(uPrincipal);
+    const xInterestRate = parseFloat(uInterestRate) / 100 / 12;
+    const xTermLength = parseFloat(uTermLength);
 
     /* Monthly Payment */
     const x = Math.pow(1 + xInterestRate, xTermLength);
