@@ -15,10 +15,11 @@ function calculate() {
 
     /* Get the input field values */
     const uPrincipal = document.getElementById('Principal').value;
-    const uInterestRate = document.getElementById('InterestRate').value;
+    let uInterestRate = document.getElementById('InterestRate').value;
     const uTermLength = document.getElementById('TermLength').value;
 
-    /* The interest rate must be greater */
+    /* The interest rate must be greater than 0 */
+    if (uInterestRate <= 0 || uInterestRate == "") { uInterestRate = 0.000001; }
 
     const xPrincipal = parseFloat(uPrincipal);
     const xInterestRate = parseFloat(uInterestRate) / 100 / 12;
