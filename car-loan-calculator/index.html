@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Calculator Pages: Car Loan Calculator</title>
+    <!-- To keep it simple we use cdn versions -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+    <style>
+        /* Don't show the spinner on number type input fields */
+        input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+            /* display: none; <- Crashes Chrome on hover */
+            -webkit-appearance: none;
+            margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+        }
+        input[type=number] {
+            -moz-appearance:textfield; /* Firefox */
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container mt-5">
+
+        <div class="row">
+
+            <div class="col-md-12">
+                <h1>Car Loan Calculator</h1>
+            </div>
+
+            <div class="col-md-7 mt-4">
+
+                <p>
+                    The Car Loan Calculator is an easy-to-use tool to estimate monthly payments, total interest paid, and
+                    the total cost of a loan.
+                </p>
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <!-- Loan Amount -->
+                        <div class="form-floating input-group mb-3">
+                            <span class="input-group-text" id="addon-LoanAmount">$</span>
+                            <input type="number" class="form-control" id="CarPrice" name="CarPrice"
+                                   placeholder="24000" value="25000"
+                                   onkeyup="isNumericKey(this)">
+                            <label style="margin-left: 2.2rem" for="CarPrice">Car Price</label>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <!-- Term length -->
+                        <div class="form-floating mb-3">
+                            <select class="form-control" id="TermLength" name="TermLength">
+                                <option value="12">12 months ( 1 year )</option>
+                                <option value="24">24 months ( 2 year )</option>
+                                <option value="36">36 months ( 3 year )</option>
+                                <option value="48">48 months ( 4 year )</option>
+                                <option value="60" selected>60 months ( 5 year )</option>
+                                <option value="72">72 months ( 6 year )</option>
+                            </select>
+                            <label for="TermLength">Term Length</label>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- Interest Rate -->
+                <div class="form-floating input-group mb-3">
+                    <input type="number" class="form-control" id="InterestRate"
+                        name="InterestRate" placeholder="5" value="4.5"
+                        onkeyup="isNumericKey(this)" min="1" max="99.99" maxlength="2">
+                    <span class="input-group-text" id="addon-InterestRate">%</span>
+                    <label for="InterestRate">Interest Rate</label>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <!-- Down Payment -->
+                        <div class="form-floating input-group mb-3">
+                            <span class="input-group-text" id="add-DownPayment">$</span>
+                            <input type="number" class="form-control" id="DownPayment"
+                                   name="DownPayment" placeholder="5000" value="5000"
+                                   onkeyup="isNumericKey(this)">
+                            <label style="margin-left: 2.2rem" for="DownPayment">Down Payment</label>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <!-- Trading Value -->
+                        <div class="form-floating input-group mb-3">
+                            <span class="input-group-text" id="add-Trade-in">$</span>
+                            <input type="number" class="form-control" id="Trade-in"
+                                   name="Trade-in" placeholder="5000" value="0"
+                                   onkeyup="isNumericKey(this)">
+                            <label style="margin-left: 2.2rem" for="Trade-in">Trade-in Value</label>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="row">
+                    <div class="col-md-6">
+
+                        <div class="form-floating mb-3">
+                            <!--- United States -->
+                            <select class="form-control" id="State" name="State">
+                                <option value="">Select your State</option>
+                                <option value="2">Alabama</option>
+                                <option value="0">Alaska</option>
+                                <option value="4">American Samoa</option>
+                                <option value="5.6">Arizona</option>
+                                <option value="6.5">Arkansas</option>
+                                <option value="7.25">California</option>
+                                <option value="2.9">Colorado</option>
+                                <option value="6.35">Connecticut</option>
+                                <option value="0">Delaware</option>
+                                <option value="6">Florida</option>
+                                <option value="6.6">Georgia</option>
+                                <option value="4">Hawaii</option>
+                                <option value="6">Idaho</option>
+                                <option value="6.25">Illinois</option>
+                                <option value="7">Indiana</option>
+                                <option value="5">Iowa</option>
+                                <option value="7.5">Kansas</option>
+                                <option value="6">Kentucky</option>
+                                <option value="4.45">Louisiana</option>
+                                <option value="5.5">Maine</option>
+                                <option value="6">Maryland</option>
+                                <option value="6.25">Massachusetts</option>
+                                <option value="6">Michigan</option>
+                                <option value="6.5">Minnesota</option>
+                                <option value="5">Mississippi</option>
+                                <option value="4.23">Missouri</option>
+                                <option value="0">Montana</option>
+                                <option value="5.5">Nebraska</option>
+                                <option value="8.25">Nevada</option>
+                                <option value="0">New Hampshire</option>
+                                <option value="6.625">New Jersey</option>
+                                <option value="4">New Mexico</option>
+                                <option value="4">New York</option>
+                                <option value="3">North Carolina</option>
+                                <option value="5">North Dakota</option>
+                                <option value="5.75">Ohio</option>
+                                <option value="3.25">Oklahoma</option>
+                                <option value="0">Oregon</option>
+                                <option value="6">Pennsylvania</option>
+                                <option value="7">Rhode Island</option>
+                                <option value="5">South Carolina</option>
+                                <option value="4">South Dakota</option>
+                                <option value="7">Tennessee</option>
+                                <option value="6.25">Texas</option>
+                                <option value="6.85">Utah</option>
+                                <option value="6">Vermont</option>
+                                <option value="4.15">Virginia</option>
+                                <option value="6.5">Washington</option>
+                                <option value="6">West Virginia</option>
+                                <option value="5">Wisconsin</option>
+                                <option value="6">Wyoming</option>
+                            </select>
+                            <label for="State">Your State</label>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <!-- Sales Tax -->
+                        <div class="form-floating input-group mb-3">
+                            <input type="number" class="form-control" id="SalesTax"
+                                   name="SalesTax" placeholder="7" value="0"
+                                   onkeyup="isNumericKey(this)">
+                            <span class="input-group-text" id="add-SalesTax">%</span>
+                            <label for="SalesTax">SalesTax</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row mb-4">
+                    <div class="col-md-6">
+                        <!-- Title, Registration and other Fees -->
+                        <div class="form-floating input-group mb-3">
+                            <span class="input-group-text" id="add-RegistrationFees">$</span>
+                            <input type="number" class="form-control" id="RegistrationFees"
+                                   name="RegistrationFees" placeholder="7" value="300"
+                                   onkeyup="isNumericKey(this)">
+                            <label style="margin-left: 2.2rem" for="RegistrationFees">Title, Registration and other fees</label>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-check mt-3">
+                            <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+                            <label class="form-check-label" for="flexCheckChecked">
+                                Include all the fees in the loan
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                    <!-- Submit -->
+                    <div class="mb-3">
+                        <button id="btn-Calculate" class="btn btn-primary btn-lg">Calculate</button>
+                    </div>
+
+            </div><!-- End: right left column -->
+
+            <div class="col-md-5">
+
+                <!-- Display: Monthly Payments -->
+                <div class=" mb-3">
+                    <div class="card bg-success text-white mt-4 w-75">
+                        <div class="card-body">
+                            <h2 id="MonthlyPayment">$599.22</h2>
+                            <p>Monthly Payments</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Display: Interest paid -->
+                <div class="mb-3">
+                    <div class="card bg-info text-white w-75">
+                        <div class="card-body">
+                            <h2 id="InterestPayed">$1,579.05</h2>
+                            <p>Total Interest</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Display: Total loan cost -->
+                <div class="mb-1">
+                    <div class="card bg-warning text-white w-75">
+                        <div class="card-body">
+                            <h2 id="TotalLoanAmount">$21,579.05</h2>
+                            <p>Total Amount</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div><!-- End: right column -->
+
+        </div><!-- End: row -->
+
+    </div><!-- End: container -->
+
+    <script src="application.js"></script>
+    <script>
+        /* Onload calculate the defaults */
+        document.addEventListener("DOMContentLoaded", function(){
+            calculate();
+        });
+    </script>
+</body>
+</html>
